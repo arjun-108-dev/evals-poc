@@ -16,13 +16,12 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { modelColors, paramCount } from "@/lib/series";
-import type { Metric } from "@/lib/types";
+import { modelColors, paramCount, type MetricLike } from "@/lib/series";
 
-interface Props {
-  metrics: Metric[];
-  xKey: keyof Metric;
-  yKey: keyof Metric;
+interface Props<T extends MetricLike> {
+  metrics: T[];
+  xKey: keyof T;
+  yKey: keyof T;
   xLabel: string;
   yLabel: string;
   xFormat?: (v: number) => string;
@@ -34,9 +33,10 @@ interface Props {
   xDomain: [number, number];
   yDomain: [number, number];
   className?: string;
+  goodZone?: "top-left" | "top-right";
 }
 
-export function TradeoffScatterChart({
+export function TradeoffScatterChart<T extends MetricLike>({
   metrics,
   xKey,
   yKey,
@@ -49,9 +49,14 @@ export function TradeoffScatterChart({
   xDomain,
   yDomain,
   className,
-}: Props) {
+  goodZone = "top-left",
+}: Props<T>) {
   const colors = modelColors(metrics);
   const maxParams = Math.max(...metrics.map((m) => paramCount(m.size)));
+  const zone =
+    goodZone === "top-left"
+      ? { x1: xDomain[0], x2: xGuide, labelPos: "insideTopLeft" as const }
+      : { x1: xGuide, x2: xDomain[1], labelPos: "insideTopRight" as const };
 
   const data = metrics.map((m) => ({
     name: m.name,
@@ -73,8 +78,8 @@ export function TradeoffScatterChart({
       <ScatterChart margin={{ top: 12, right: 16, bottom: 8, left: 4 }}>
         <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" />
         <ReferenceArea
-          x1={xDomain[0]}
-          x2={xGuide}
+          x1={zone.x1}
+          x2={zone.x2}
           y1={yGuide}
           y2={yDomain[1]}
           fill="var(--muted-foreground)"
@@ -82,7 +87,7 @@ export function TradeoffScatterChart({
           stroke="none"
           label={{
             value: "good zone",
-            position: "insideTopLeft",
+            position: zone.labelPos,
             fill: "var(--muted-foreground)",
             fontSize: 10,
           }}

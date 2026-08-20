@@ -1,0 +1,323 @@
+id,question,category,difficulty,expected_answer,model_output,extracted_answer,answer_parsed,answer_correct,latency_ms,error
+a01,What is 17 + 29?,arithmetic,easy,46,"Answer: 46
+
+46",46.0,True,True,4403.2,
+a02,What is 148 - 63?,arithmetic,easy,85,"Answer: 85
+
+85",85.0,True,True,2743.7,
+a03,What is 12 * 15?,arithmetic,easy,180,12 * 15 = 180,180.0,True,True,2725.4,
+a04,What is 156 / 4?,arithmetic,easy,39,156 / 4 = 39.0,39.0,True,True,2765.6,
+a05,What is 25 + 33 - 17?,arithmetic,easy,41,"Step 1: Add 25 and 33.
+25 + 33 = 58
+
+Step 2: Subtract 17 from the result.
+58 - 17 = 41
+
+Answer: 41",41.0,True,True,3248.9,
+a06,What is 7 * 8 + 4?,arithmetic,easy,60,"To solve the expression \( 7 \times 8 + 4 \), follow these steps:
+
+1. First, perform the multiplication:
+   \[
+   7 \times 8 = 56
+   \]
+
+2. Then, add 4 to the result:
+   \[
+   56 + 4 = 60
+   \]
+
+So, the answer is \( 60 \).",56.0,True,False,3662.9,
+a07,What is 3^4?,arithmetic,easy,81,"To find \( 3^4 \), we can calculate it directly:
+
+\[ 3^4 = 3 \times 3 \times 3 \times 3 \]
+
+First, calculate \( 3 \times 3 \):
+
+\[ 3 \times 3 = 9 \]
+
+Next, multiply the result by 3:
+
+\[ 9 \times 3 = 27 \]
+
+So, \( 3^4 = 27 \).
+
+Answer: 27",27.0,True,False,3779.0,
+a08,What is 1024 - 256?,arithmetic,easy,768,"Answer: 768
+
+768",768.0,True,True,2700.3,
+w01,A train travels at 60 miles per hour for 2.5 hours. How far does it travel in miles?,word_problem,medium,150,"To find out how far the train travels, you can use the formula:
+
+\[ \text{Distance} = \text{Speed} \times \text{Time} \]
+
+Given:
+- Speed = 60 miles per hour
+- Time = 2.5 hours
+
+So, the distance is:
+
+\[ \text{Distance} = 60 \times 2.5 = 150 \text{ miles} \]
+
+Answer: 150",150.0,True,True,3845.9,
+w02,"If one dozen eggs costs $3, how much do 4 dozen eggs cost in dollars?",word_problem,easy,12,"To find the cost of 4 dozen eggs, we start by determining the cost of one dozen eggs. Since one dozen eggs costs $3, we can find the cost of one dozen eggs by dividing $3 by 12:
+
+\[
+\text{Cost of one dozen eggs} = \frac{3}{12} = \frac{1}{4} \text{ dollars}
+\]
+
+Next, we calculate the cost of 4 dozen eggs by multiplying the cost of one dozen eggs by 4:
+
+\[
+\text{Cost of 4 dozen eggs} = 4 \times \frac{1}{4} = 1 \text{ dollar}
+\]
+
+Thus, the cost of 4 dozen eggs is \(\boxed{1}\) dollar.",1.0,True,False,4590.8,
+w03,A rectangle is 12 meters long and 8 meters wide. What is its perimeter in meters?,word_problem,medium,40,"To find the perimeter of a rectangle, you can use the formula:
+
+\[ \text{Perimeter} = 2 \times (\text{length} + \text{width}) \]
+
+Given the length is 12 meters and the width is 8 meters, we can plug these values into the formula:
+
+\[ \text{Perimeter} = 2 \times (12 + 8) \]
+\[ \text{Perimeter} = 2 \times 20 \]
+\[ \text{Perimeter} = 40 \]
+
+So, the perimeter of the rectangle is 40 meters.",40.0,True,True,4203.4,
+w04,"A pizza is cut into 8 slices. If 5 slices are eaten, how many slices are left?",word_problem,easy,3,"5 slices are eaten, so 8 slices are left. The answer is 8.",8.0,True,False,2868.1,
+w05,John has 15 apples. He gives 4 to Mary and eats 3. How many apples does he have left?,word_problem,medium,8,John has 15 - 4 - 3 = 8 apples left.,8.0,True,True,2899.5,
+w06,A car uses 6 liters of fuel per 100 km. How many liters does it use to drive 250 km?,word_problem,hard,15,"To determine how many liters of fuel the car uses to drive 250 km, we start with the given ratio of fuel consumption to distance. The car uses 6 liters of fuel for every 100 km. We need to find out how many liters are used per kilometer.
+
+First, we calculate the fuel consumption per kilometer:
+\[
+\text{Fuel consumption per kilometer} = \frac{6 \text{ liters}}{100 \text{ km}} = 0.06 \text{ liters per km}
+\]
+
+Next, we need to find out how many liters are used for 250 km:
+\[
+\text{Fuel consumption for 250 km} = 0.06 \text{ liters per km} \times 250 \text{ km} = 15 \text{ liters}
+\]
+
+Thus, the car uses \(\boxed{15}\) liters of fuel to drive 250 km.",250.0,True,False,5258.8,
+w07,A store sells a shirt for $45 after a 25% discount. What was the original price in dollars?,word_problem,hard,60,"To find the original price of the shirt before the discount, we need to reverse the 25% discount. A 25% discount means the customer pays 75% of the original price. Let's denote the original price by \( P \).
+
+The relationship between the original price and the discounted price is given by:
+\[ \text{Discounted Price} = \text{Original Price} \times (1 - \text{Discount Rate}) \]
+\[ 45 = P \times (1 - 0.25) \]
+\[ 45 = P \times 0.75 \]
+To find \( P \), we divide both sides of the equation by 0.75:
+\[ P = \frac{45}{0.75} \]
+\[ P = 60 \]
+So, the original price of the shirt was \( 60 \) dollars.",60.0,True,True,5005.0,
+w08,You run 3 laps of a 400-meter track. How many meters do you run in total?,word_problem,easy,1200,"To find out how many meters you run in total, you need to multiply the number of laps by the length of each lap. 
+
+So, if you run 3 laps, you run:
+
+\[ 3 \text{ laps} \times 400 \text{ meters/lap} = 1200 \text{ meters} \]
+
+Therefore, the total distance you run is 1200 meters.",1200.0,True,True,3773.1,
+w09,A book has 240 pages. You read 15 pages a day. How many days does it take to finish?,word_problem,medium,16,"To determine how many days it takes to read the book, we divide the total number of pages by the number of pages read per day:
+
+\[ \text{Number of days} = \frac{\text{Total number of pages}}{\text{Pages read per day}} = \frac{240}{15} \]
+
+Performing the division:
+
+\[ \frac{240}{15} = 16 \]
+
+So, it takes 16 days to finish reading the book.",16.0,True,True,4130.7,
+w10,"A bag has 3 red, 5 blue, and 2 green marbles. How many marbles are in the bag in total?",word_problem,easy,10,3 + 5 + 2 = 10 marbles are in the bag in total.,10.0,True,True,2985.9,
+w11,The sum of two numbers is 100. One of them is 37. What is the other number?,word_problem,medium,63,"To find the other number, subtract the known number from the total sum:
+
+100 - 37 = 63
+
+The other number is 63.",63.0,True,True,3088.6,
+w12,A recipe needs 1.5 cups of flour per batch. How many cups are needed for 3 batches?,word_problem,medium,4.5,"To find out how many cups of flour are needed for 3 batches, you multiply the amount needed for 1 batch by 3:
+
+1.5 cups/batch * 3 batches = 4.5 cups
+
+So, 4.5 cups are needed for 3 batches.",3.0,True,False,3413.6,
+f01,What is 25% of 200?,fraction_percent,easy,50,"To find 25% of 200, you can multiply 200 by 0.25 (since 25% is the same as 0.25 in decimal form).
+
+$$ 200 \times 0.25 = 50 $$
+
+So, 25% of 200 is 50.",50.0,True,True,3581.8,
+f02,What is 1/4 of 100?,fraction_percent,easy,25,"To find 1/4 of 100, you can multiply 100 by 1/4:
+
+$$
+100 \times \frac{1}{4} = 25
+$$
+
+So, 1/4 of 100 is 25.",25.0,True,True,3352.3,
+f03,What is 50% of 78?,fraction_percent,easy,39,"To find 50% of 78, you can multiply 78 by 0.5 (which is the decimal equivalent of 50%).
+
+$$
+50\% \text{ of } 78 = 78 \times 0.5 = 39
+$$
+
+So, 50% of 78 is 39.",39.0,True,True,3542.7,
+f04,What is 2/3 of 60?,fraction_percent,medium,40,"To find 2/3 of 60, you multiply 60 by 2/3:
+
+$$
+\frac{2}{3} \times 60 = \frac{2 \times 60}{3} = \frac{120}{3} = 40
+$$
+
+So, 2/3 of 60 is 40.",40.0,True,True,3551.5,
+f05,What is 3/4 + 1/4?,fraction_percent,easy,1,3/4 + 1/4 = 4/4 = 1.0,1.0,True,True,2833.3,
+f06,What is 10% of 350?,fraction_percent,easy,35,"To find 10% of 350, you can multiply 350 by 0.10 (since 10% is the same as 0.10 in decimal form).
+
+Calculation: 350 * 0.10 = 35
+
+Answer: 35
+
+The numeric answer is 35.",35.0,True,True,3766.9,
+f07,A shirt costs $80. It goes on sale for 30% off. How much is the discount in dollars?,fraction_percent,medium,24,"To calculate the discount, you can multiply the original price by the percentage of the discount (expressed as a decimal).
+
+Original price: $80
+Discount percentage: 30%
+
+Discount amount = Original price × Discount percentage (as a decimal)
+Discount amount = $80 × 0.30
+Discount amount = $24
+
+Answer: 24
+The discount is $24.",24.0,True,True,3661.2,
+f08,What is 15% of 200?,fraction_percent,easy,30,"To find 15% of 200, you can multiply 200 by 0.15 (since 15% is the same as 0.15 in decimal form).
+
+Calculation: \( 200 \times 0.15 = 30 \).
+
+Answer: 30.",30.0,True,True,3544.7,
+f09,"If 40% of a number is 20, what is the number?",fraction_percent,hard,50,"To find the number, let's denote it by \( x \). According to the problem, 40% of \( x \) is 20. This can be written as the equation:
+
+\[ 0.40 \times x = 20 \]
+
+To solve for \( x \), we need to isolate \( x \) on one side of the equation. We can do this by dividing both sides of the equation by 0.40:
+
+\[ x = \frac{20}{0.40} \]
+
+Next, we perform the division:
+
+\[ x = \frac{20}{0.40} = \frac{20}{\frac{40}{100}} = \frac{20 \times 100}{40} = \frac{2000}{40} = 50 \]
+
+So, the number is \( 50 \).
+
+The numeric answer is:
+
+\[ \boxed{50} \]",50.0,True,True,5347.6,
+al01,"If x + 7 = 15, what is x?",algebra,medium,8,"To find the value of \( x \) in the equation \( x + 7 = 15 \), follow these steps:
+
+1. Subtract 7 from both sides of the equation to isolate \( x \):
+   \[
+   x + 7 - 7 = 15 - 7
+   \]
+   Simplifying this, we get:
+   \[
+   x = 8
+   \]
+
+2. The value of \( x \) is \( 8 \).
+
+3. The numeric answer is \( 8 \).
+
+Therefore, the answer is \( 8 \).",8.0,True,True,4211.6,
+al02,"If 3x = 24, what is x?",algebra,easy,8,"To find the value of \( x \) in the equation \( 3x = 24 \), follow these steps:
+
+1. Divide both sides of the equation by 3:
+   \[
+   x = \frac{24}{3}
+   \]
+
+2. Perform the division:
+   \[
+   x = 8
+   \]
+
+The value of \( x \) is \( 8 \).",8.0,True,True,3702.5,
+al03,"If 2x - 5 = 9, what is x?",algebra,medium,7,"To solve the equation \(2x - 5 = 9\), follow these steps:
+
+1. Add 5 to both sides of the equation to isolate the term with \(x\):
+   \[
+   2x - 5 + 5 = 9 + 5
+   \]
+   Simplifying this, we get:
+   \[
+   2x = 14
+   \]
+
+2. Divide both sides by 2 to solve for \(x\):
+   \[
+   \frac{2x}{2} = \frac{14}{2}
+   \]
+   Simplifying this, we get:
+   \[
+   x = 7
+   \]
+
+The solution is \(x = 7\).",14.0,True,False,4851.7,
+al04,"If x / 4 = 6, what is x?",algebra,easy,24,"To find the value of \( x \) in the equation \( \frac{x}{4} = 6 \), you can solve it by multiplying both sides of the equation by 4:
+
+\[ x = 6 \times 4 \]
+
+\[ x = 24 \]
+
+So, \( x = 24 \).",24.0,True,True,3616.6,
+al05,"If x + 2x = 18, what is x?",algebra,medium,6,"Step 1: Combine like terms on the left side of the equation.
+x + 2x = 3x
+
+Step 2: Set the combined terms equal to the right side of the equation.
+3x = 18
+
+Step 3: Divide both sides by 3 to isolate x.
+x = 18 / 3
+
+Step 4: Simplify the fraction.
+x = 6
+
+The answer is 6.",6.0,True,True,3918.8,
+al06,"If 5x + 3 = 28, what is x?",algebra,medium,5,"To solve for x, we need to isolate x on one side of the equation. Let's do that step by step:
+
+1) Subtract 3 from both sides:
+   5x + 3 - 3 = 28 - 3
+   5x = 25
+
+2) Divide both sides by 5:
+   5x / 5 = 25 / 5
+   x = 5
+
+The answer is 5.",5.0,True,True,3919.5,
+al07,"If 2(x + 3) = 14, what is x?",algebra,hard,4,"To solve the equation \(2(x + 3) = 14\), follow these steps:
+
+1. Distribute the 2 on the left side:
+   \[
+   2(x + 3) = 14 \implies 2x + 6 = 14
+   \]
+
+2. Subtract 6 from both sides to isolate the term with \(x\):
+   \[
+   2x + 6 - 6 = 14 - 6 \implies 2x = 8
+   \]
+
+3. Divide both sides by 2 to solve for \(x\):
+   \[
+   \frac{2x}{2} = \frac{8}{2} \implies x = 4
+   \]
+
+The solution is \(x = 4\).",14.0,True,False,7099.8,
+al08,"If x^2 = 81, what is the positive value of x?",algebra,medium,9,"To find the positive value of \( x \) in the equation \( x^2 = 81 \), follow these steps:
+
+1. Take the square root of both sides of the equation:
+   \[
+   x = \sqrt{81}
+   \]
+
+2. Calculate the square root of 81:
+   \[
+   \sqrt{81} = 9
+   \]
+
+3. Since we are asked for the positive value of \( x \), we take the positive root:
+   \[
+   x = 9
+   \]
+
+The positive value of \( x \) is \( 9 \). Therefore, the answer is:
+\[
+\boxed{9}
+\]",9.0,True,True,5057.4,

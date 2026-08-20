@@ -1,0 +1,37 @@
+{"id": "a01", "question": "What is 17 + 29?", "answer": "46", "category": "arithmetic", "difficulty": "easy"}
+{"id": "a02", "question": "What is 148 - 63?", "answer": "85", "category": "arithmetic", "difficulty": "easy"}
+{"id": "a03", "question": "What is 12 * 15?", "answer": "180", "category": "arithmetic", "difficulty": "easy"}
+{"id": "a04", "question": "What is 156 / 4?", "answer": "39", "category": "arithmetic", "difficulty": "easy"}
+{"id": "a05", "question": "What is 25 + 33 - 17?", "answer": "41", "category": "arithmetic", "difficulty": "easy"}
+{"id": "a06", "question": "What is 7 * 8 + 4?", "answer": "60", "category": "arithmetic", "difficulty": "easy"}
+{"id": "a07", "question": "What is 3^4?", "answer": "81", "category": "arithmetic", "difficulty": "easy"}
+{"id": "a08", "question": "What is 1024 - 256?", "answer": "768", "category": "arithmetic", "difficulty": "easy"}
+{"id": "w01", "question": "A train travels at 60 miles per hour for 2.5 hours. How far does it travel in miles?", "answer": "150", "category": "word_problem", "difficulty": "medium"}
+{"id": "w02", "question": "If one dozen eggs costs $3, how much do 4 dozen eggs cost in dollars?", "answer": "12", "category": "word_problem", "difficulty": "easy"}
+{"id": "w03", "question": "A rectangle is 12 meters long and 8 meters wide. What is its perimeter in meters?", "answer": "40", "category": "word_problem", "difficulty": "medium"}
+{"id": "w04", "question": "A pizza is cut into 8 slices. If 5 slices are eaten, how many slices are left?", "answer": "3", "category": "word_problem", "difficulty": "easy"}
+{"id": "w05", "question": "John has 15 apples. He gives 4 to Mary and eats 3. How many apples does he have left?", "answer": "8", "category": "word_problem", "difficulty": "medium"}
+{"id": "w06", "question": "A car uses 6 liters of fuel per 100 km. How many liters does it use to drive 250 km?", "answer": "15", "category": "word_problem", "difficulty": "hard"}
+{"id": "w07", "question": "A store sells a shirt for $45 after a 25% discount. What was the original price in dollars?", "answer": "60", "category": "word_problem", "difficulty": "hard"}
+{"id": "w08", "question": "You run 3 laps of a 400-meter track. How many meters do you run in total?", "answer": "1200", "category": "word_problem", "difficulty": "easy"}
+{"id": "w09", "question": "A book has 240 pages. You read 15 pages a day. How many days does it take to finish?", "answer": "16", "category": "word_problem", "difficulty": "medium"}
+{"id": "w10", "question": "A bag has 3 red, 5 blue, and 2 green marbles. How many marbles are in the bag in total?", "answer": "10", "category": "word_problem", "difficulty": "easy"}
+{"id": "w11", "question": "The sum of two numbers is 100. One of them is 37. What is the other number?", "answer": "63", "category": "word_problem", "difficulty": "medium"}
+{"id": "w12", "question": "A recipe needs 1.5 cups of flour per batch. How many cups are needed for 3 batches?", "answer": "4.5", "category": "word_problem", "difficulty": "medium"}
+{"id": "f01", "question": "What is 25% of 200?", "answer": "50", "category": "fraction_percent", "difficulty": "easy"}
+{"id": "f02", "question": "What is 1/4 of 100?", "answer": "25", "category": "fraction_percent", "difficulty": "easy"}
+{"id": "f03", "question": "What is 50% of 78?", "answer": "39", "category": "fraction_percent", "difficulty": "easy"}
+{"id": "f04", "question": "What is 2/3 of 60?", "answer": "40", "category": "fraction_percent", "difficulty": "medium"}
+{"id": "f05", "question": "What is 3/4 + 1/4?", "answer": "1", "category": "fraction_percent", "difficulty": "easy"}
+{"id": "f06", "question": "What is 10% of 350?", "answer": "35", "category": "fraction_percent", "difficulty": "easy"}
+{"id": "f07", "question": "A shirt costs $80. It goes on sale for 30% off. How much is the discount in dollars?", "answer": "24", "category": "fraction_percent", "difficulty": "medium"}
+{"id": "f08", "question": "What is 15% of 200?", "answer": "30", "category": "fraction_percent", "difficulty": "easy"}
+{"id": "f09", "question": "If 40% of a number is 20, what is the number?", "answer": "50", "category": "fraction_percent", "difficulty": "hard"}
+{"id": "al01", "question": "If x + 7 = 15, what is x?", "answer": "8", "category": "algebra", "difficulty": "medium"}
+{"id": "al02", "question": "If 3x = 24, what is x?", "answer": "8", "category": "algebra", "difficulty": "easy"}
+{"id": "al03", "question": "If 2x - 5 = 9, what is x?", "answer": "7", "category": "algebra", "difficulty": "medium"}
+{"id": "al04", "question": "If x / 4 = 6, what is x?", "answer": "24", "category": "algebra", "difficulty": "easy"}
+{"id": "al05", "question": "If x + 2x = 18, what is x?", "answer": "6", "category": "algebra", "difficulty": "medium"}
+{"id": "al06", "question": "If 5x + 3 = 28, what is x?", "answer": "5", "category": "algebra", "difficulty": "medium"}
+{"id": "al07", "question": "If 2(x + 3) = 14, what is x?", "answer": "4", "category": "algebra", "difficulty": "hard"}
+{"id": "al08", "question": "If x^2 = 81, what is the positive value of x?", "answer": "9", "category": "algebra", "difficulty": "medium"}

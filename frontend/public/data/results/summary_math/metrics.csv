@@ -1,0 +1,5 @@
+model_id,name,size,color,n_examples,n_parsed,n_correct,accuracy,parse_rate,overall_score,avg_latency_ms
+gemma3-1b,Gemma 3 1B,1B,#22D3EE,37,37,36,0.973,1.0,0.9797,6205.0
+qwen3-0.6b,Qwen3 0.6B,0.6B,#34D399,37,37,32,0.8649,1.0,0.8986,7555.7
+qwen2.5-1.5b,Qwen2.5 1.5B,1.5B,#F59E0B,37,37,34,0.9189,1.0,0.9392,2952.7
+qwen2.5-0.5b,Qwen2.5 0.5B,0.5B,#F472B6,37,37,29,0.7838,1.0,0.8378,3828.4

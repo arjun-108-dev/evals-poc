@@ -1,4 +1,13 @@
-import type { Metric } from "./types";
+import type { MathMetric, Metric } from "./types";
+
+/** Minimal shape shared by every metric row (tool + math evals). */
+export interface MetricLike {
+  model_id: string;
+  name: string;
+  size: string;
+  color: string;
+  overall_score: number;
+}
 
 /** Accent reserved for the single best-performing model (teal/green). */
 export const ACCENT = "var(--eval-accent)";
@@ -13,18 +22,20 @@ const GRAYS = [
 
 export const pct = (v: number) => `${Math.round(v * 100)}%`;
 
-export function bestModelId(metrics: Metric[]): string {
+export function bestModelId<T extends MetricLike>(metrics: T[]): string {
   return [...metrics].sort((a, b) => b.overall_score - a.overall_score)[0]
     .model_id;
 }
 
-export function worstModelId(metrics: Metric[]): string {
+export function worstModelId<T extends MetricLike>(metrics: T[]): string {
   return [...metrics].sort((a, b) => a.overall_score - b.overall_score)[0]
     .model_id;
 }
 
 /** Map of model_id -> series color (accent for best, gray otherwise). */
-export function modelColors(metrics: Metric[]): Record<string, string> {
+export function modelColors<T extends MetricLike>(
+  metrics: T[],
+): Record<string, string> {
   const best = bestModelId(metrics);
   let g = 0;
   const out: Record<string, string> = {};
@@ -46,4 +57,9 @@ export const SUB_SCORES: { key: keyof Metric; label: string }[] = [
   { key: "arg_accuracy", label: "Arg" },
   { key: "abstain_accuracy", label: "Abstain" },
   { key: "format_validity", label: "Format" },
+];
+
+export const MATH_SUB_SCORES: { key: keyof MathMetric; label: string }[] = [
+  { key: "accuracy", label: "Accuracy" },
+  { key: "parse_rate", label: "Parse" },
 ];

@@ -1,7 +1,7 @@
-import type { MetricKey } from "./types";
+import type { MathMetricKey, MetricKey } from "./types";
 
 export interface MetricInfo {
-  key: MetricKey;
+  key: string;
   title: string;
   /** One-line hint shown under the chart title. */
   hint: string;
@@ -136,5 +136,89 @@ export const METRIC_ORDER: MetricKey[] = [
   "arg_accuracy",
   "abstain_accuracy",
   "false_positive_rate",
+  "avg_latency_ms",
+];
+
+export const MATH_METRIC_INFO: Record<MathMetricKey, MetricInfo> = {
+  overall_score: {
+    key: "overall_score",
+    title: "Overall Score",
+    hint: "0.75·accuracy + 0.25·parse_rate",
+    description:
+      "A single 0–1 score that ranks a model's end-to-end math ability. It blends raw answer " +
+      "accuracy (75%) with extraction success (25%) so a model that fails to emit any number " +
+      "can't hide behind the smaller subset of examples it did answer.",
+    howToRead:
+      "Bars range from 0.0 (worst) to 1.0 (perfect). Models are colored by their legend color. " +
+      "Use this chart for a quick ranking, then open the component charts below to understand why.",
+    goodDirection: "high",
+    watchFor: [
+      "This is a weighted composite, not a raw accuracy — a model that always extracts SOME " +
+        "answer (even wrong ones) earns parse-rate points while scoring low on accuracy.",
+      "All 4 math runs achieved a 100% parse rate here, so overall tracks accuracy closely " +
+        "for this dataset.",
+    ],
+  },
+  accuracy: {
+    key: "accuracy",
+    title: "Accuracy",
+    hint: "fraction of examples where the extracted answer matched",
+    description:
+      "Of all examples, the fraction where the model's extracted numeric answer matched the " +
+      "expected answer (after the grader's normalization: numeric tolerance and fraction " +
+      "simplification). Unparsed examples count against accuracy.",
+    howToRead:
+      "Bars are a percentage 0–100%. A gap between Accuracy and Parse Rate reveals examples " +
+        "where a number WAS extracted but it was wrong.",
+    goodDirection: "high",
+    watchFor: [
+      "This counts everything as a denominator, so a model that refuses to answer is penalized " +
+        "the same as one that answers wrongly.",
+      "Category-level failures (fractions/percents vs arithmetic) are easier to spot in the " +
+        "per-model view.",
+    ],
+  },
+  parse_rate: {
+    key: "parse_rate",
+    title: "Parse Rate",
+    hint: "fraction where ANY numeric answer was extractable",
+    description:
+      "Of all examples, the fraction where the grader could extract ANY numeric answer from " +
+      "the raw model output. It measures whether the model emits a number at all — not whether " +
+      "that number is right.",
+    howToRead:
+      "Bars are a percentage 0–100%. A high parse rate with low accuracy means the model is " +
+        "confidently wrong; a low parse rate means it rarely produces a usable numeric answer.",
+    goodDirection: "high",
+    watchFor: [
+      "A low parse rate is common on word problems, where models write prose and bury the " +
+        "answer, or trail off without a final number.",
+      "This is the 'does it even try to answer numerically' gate that the overall score uses " +
+        "to keep accuracy honest.",
+    ],
+  },
+  avg_latency_ms: {
+    key: "avg_latency_ms",
+    title: "Average Latency",
+    hint: "milliseconds per request (lower is faster)",
+    description:
+      "Average wall-clock time per question, measured from request send to full response, on " +
+      "this machine's Ollama instance (CPU inference for these tiny models).",
+    howToRead:
+      "Bars are in milliseconds; LOWER is faster. This is a secondary quality axis, not a " +
+        "correctness metric — a fast model that is wrong is still wrong.",
+    goodDirection: "low",
+    watchFor: [
+      "Latency depends heavily on hardware and prompt length; compare models relatively, not " +
+        "as absolutes.",
+      "Long chain-of-thought answers inflate latency without necessarily improving accuracy.",
+    ],
+  },
+};
+
+export const MATH_METRIC_ORDER: MathMetricKey[] = [
+  "overall_score",
+  "accuracy",
+  "parse_rate",
   "avg_latency_ms",
 ];

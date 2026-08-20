@@ -1,5 +1,13 @@
 import Papa from "papaparse";
-import type { DatasetExample, ExampleRow, Metric, ModelMeta } from "./types";
+import type {
+  DatasetExample,
+  ExampleRow,
+  MathDatasetExample,
+  MathExampleRow,
+  MathMetric,
+  Metric,
+  ModelMeta,
+} from "./types";
 
 const BASE = "/data";
 
@@ -86,6 +94,64 @@ export async function loadModelRows(
       error: r.error,
       category: meta?.category,
       difficulty: meta?.difficulty,
+    };
+  });
+}
+
+export async function loadMathMetrics(): Promise<MathMetric[]> {
+  const text = await getText("/results/summary_math/metrics.csv");
+  const rows = Papa.parse<Record<string, string>>(text, {
+    header: true,
+    skipEmptyLines: true,
+  }).data;
+  return rows.map((r) => ({
+    model_id: r.model_id,
+    name: r.name,
+    size: r.size,
+    color: r.color,
+    n_examples: Number(r.n_examples) || 0,
+    n_parsed: Number(r.n_parsed) || 0,
+    n_correct: Number(r.n_correct) || 0,
+    accuracy: Number(r.accuracy) || 0,
+    parse_rate: Number(r.parse_rate) || 0,
+    overall_score: Number(r.overall_score) || 0,
+    avg_latency_ms: Number(r.avg_latency_ms) || 0,
+  }));
+}
+
+export async function loadMathDataset(): Promise<MathDatasetExample[]> {
+  const text = await getText("/math_dataset.jsonl");
+  return text
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .map((l) => JSON.parse(l) as MathDatasetExample);
+}
+
+export async function loadMathModelRows(
+  modelId: string,
+  dataset: MathDatasetExample[],
+): Promise<MathExampleRow[]> {
+  const text = await getText(`/results/raw_math/${modelId}.csv`);
+  const rows = Papa.parse<Record<string, string>>(text, {
+    header: true,
+    skipEmptyLines: true,
+  }).data;
+  const metaById = new Map(dataset.map((d) => [d.id, d]));
+  return rows.map((r) => {
+    const meta = metaById.get(r.id);
+    return {
+      id: r.id,
+      question: r.question,
+      expected_answer: r.expected_answer,
+      model_output: r.model_output,
+      extracted_answer: r.extracted_answer,
+      answer_parsed: r.answer_parsed === "True",
+      answer_correct: r.answer_correct === "True",
+      latency_ms: Number(r.latency_ms) || 0,
+      error: r.error,
+      category: meta?.category ?? r.category,
+      difficulty: meta?.difficulty ?? r.difficulty,
     };
   });
 }

@@ -64,3 +64,45 @@ export type MetricKey =
   | "abstain_accuracy"
   | "false_positive_rate"
   | "avg_latency_ms";
+
+export interface MathMetric {
+  model_id: string;
+  name: string;
+  size: string;
+  color: string;
+  n_examples: number;
+  n_parsed: number;
+  n_correct: number;
+  accuracy: number;
+  parse_rate: number;
+  overall_score: number;
+  avg_latency_ms: number;
+}
+
+export interface MathExampleRow {
+  id: string;
+  question: string;
+  category?: string;
+  difficulty?: string;
+  expected_answer: string;
+  model_output: string;
+  extracted_answer: string;
+  answer_parsed: boolean;
+  answer_correct: boolean;
+  latency_ms: number;
+  error: string;
+}
+
+export interface MathDatasetExample {
+  id: string;
+  question: string;
+  answer: string;
+  category: string;
+  difficulty: string;
+}
+
+export type MathMetricKey =
+  | "accuracy"
+  | "parse_rate"
+  | "overall_score"
+  | "avg_latency_ms";

@@ -13,26 +13,27 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { modelColors, pct, SUB_SCORES } from "@/lib/series";
-import type { Metric } from "@/lib/types";
+import { modelColors, pct, SUB_SCORES, type MetricLike } from "@/lib/series";
 
-interface Props {
-  metrics: Metric[];
+interface Props<T extends MetricLike> {
+  metrics: T[];
   className?: string;
   showLabels?: boolean;
+  subScores?: { key: keyof T; label: string }[];
 }
 
-export function MetricRadarChart({
+export function MetricRadarChart<T extends MetricLike>({
   metrics,
   className,
   showLabels = true,
-}: Props) {
+  subScores = SUB_SCORES as unknown as { key: keyof T; label: string }[],
+}: Props<T>) {
   const colors = modelColors(metrics);
   const bestId = [...metrics].sort(
     (a, b) => b.overall_score - a.overall_score,
   )[0].model_id;
 
-  const data = SUB_SCORES.map((s) => {
+  const data = subScores.map((s) => {
     const row: Record<string, number | string> = { metric: s.label };
     for (const m of metrics) row[m.model_id] = m[s.key] as number;
     return row;

@@ -1,0 +1,252 @@
+id,question,category,difficulty,expected_answer,model_output,extracted_answer,answer_parsed,answer_correct,latency_ms,error
+a01,What is 17 + 29?,arithmetic,easy,46,"17 + 29 = 46
+
+Answer: 46
+",46.0,True,True,6962.5,
+a02,What is 148 - 63?,arithmetic,easy,85,"148 - 63 = 85
+
+Answer: 85
+",85.0,True,True,4534.8,
+a03,What is 12 * 15?,arithmetic,easy,180,"12 * 15 = 180
+",180.0,True,True,4307.0,
+a04,What is 156 / 4?,arithmetic,easy,39,"156 / 4 = 39
+Answer: 39
+",39.0,True,True,6296.7,
+a05,What is 25 + 33 - 17?,arithmetic,easy,41,"1. **Add:** 25 + 33 = 58
+2. **Subtract:** 58 - 17 = 41
+
+Answer: 41
+",41.0,True,True,5361.9,
+a06,What is 7 * 8 + 4?,arithmetic,easy,60,"1. **Calculate the multiplication:** 7 * 8 = 56
+2. **Add the result to the original number:** 56 + 4 = 60
+Answer: 60",60.0,True,True,5569.5,
+a07,What is 3^4?,arithmetic,easy,81,"Let's calculate 3^4:
+
+3^4 = 3 * 3 * 3 * 3 = 9 * 3 * 3 = 27 * 3 = 81
+
+Answer: 81",81.0,True,True,5685.4,
+a08,What is 1024 - 256?,arithmetic,easy,768,"1024 - 256 = 768
+
+Answer: 768",768.0,True,True,5023.1,
+w01,A train travels at 60 miles per hour for 2.5 hours. How far does it travel in miles?,word_problem,medium,150,"Here's how to solve the problem step-by-step:
+
+1. **Calculate the distance:** Distance = Speed x Time
+   Distance = 60 miles/hour * 2.5 hours
+   Distance = 150 miles
+
+Answer: 150",150.0,True,True,5564.6,
+w02,"If one dozen eggs costs $3, how much do 4 dozen eggs cost in dollars?",word_problem,easy,12,"Let the cost of one dozen eggs be $C$. We are given that one dozen eggs costs $3, so $C = 3$.
+We want to find the cost of 4 dozen eggs.
+Since one dozen eggs costs $3, the cost of 4 dozen eggs is $4 \times C = 4 \times 3 = 12$.
+Therefore, 4 dozen eggs cost $12.
+
+Answer: 12.",12.0,True,True,7034.9,
+w03,A rectangle is 12 meters long and 8 meters wide. What is its perimeter in meters?,word_problem,medium,40,"Here's how to calculate the perimeter of the rectangle:
+
+*   **Perimeter of a rectangle = 2 * (length + width)**
+*   Perimeter = 2 * (12 + 8)
+*   Perimeter = 2 * 20
+*   Perimeter = 40
+
+Answer: 40",40.0,True,True,5877.6,
+w04,"A pizza is cut into 8 slices. If 5 slices are eaten, how many slices are left?",word_problem,easy,3,"Let the total number of slices be $T = 8$.
+Let the number of slices eaten be $E = 5$.
+The number of slices left is $L = T - E = 8 - 5 = 3$.
+
+Answer: 3
+",3.0,True,True,5566.9,
+w05,John has 15 apples. He gives 4 to Mary and eats 3. How many apples does he have left?,word_problem,medium,8,"Let's break this down step by step:
+
+1. **Start with the initial number of apples:** John begins with 15 apples.
+2. **John gives apples to Mary:** He gives away 4 apples, so he has 15 - 4 = 11 apples.
+3. **John eats apples:** He eats 3 apples, so he has 11 - 3 = 8 apples.
+
+Answer: 8",8.0,True,True,6792.1,
+w06,A car uses 6 liters of fuel per 100 km. How many liters does it use to drive 250 km?,word_problem,hard,15,"Let $F$ be the amount of fuel used in liters and $D$ be the distance driven in kilometers.
+We are given that the car uses 6 liters of fuel per 100 km. This can be written as a ratio:
+$$\frac{6 \text{ liters}}{100 \text{ km}}$$
+We want to find out how many liters the car uses to drive 250 km. Let $x$ be the number of liters used to drive 250 km. We can set up a proportion:
+$$\frac{6 \text{ liters}}{100 \text{ km}} = \frac{x \text{ liters}}{250 \text{ km}}$$
+To solve for $x$, we can cross-multiply:
+$$6 \cdot 250 = 100 \cdot x$$
+$$1500 = 100x$$
+$$x = \frac{1500}{100}$$
+$$x = 15$$
+So the car uses 15 liters to drive 250 km.
+
+Final Answer: 15.0",15.0,True,True,10607.2,
+w07,A store sells a shirt for $45 after a 25% discount. What was the original price in dollars?,word_problem,hard,60,"Let the original price of the shirt be $x$.
+The store offers a 25% discount, which means the discount amount is 25% of $x$, or $0.25x$.
+The selling price after the discount is the original price minus the discount amount, so $x - 0.25x = 0.75x$.
+We are given that the selling price is $45, so we have the equation $0.75x = 45$.
+To solve for $x$, divide both sides by 0.75:
+$x = \frac{45}{0.75} = \frac{45}{\frac{3}{4}} = 45 \cdot \frac{4}{3} = 15 \cdot 4 = 60$.
+Therefore, the original price of the shirt was $60.
+
+Answer: 60",60.0,True,True,9350.8,
+w08,You run 3 laps of a 400-meter track. How many meters do you run in total?,word_problem,easy,1200,"Here's how to solve the problem step-by-step:
+
+1. **Laps per lap:** 3 laps
+2. **Total distance:** 3 laps * 400 meters/lap = 1200 meters
+
+Answer: 1200",1200.0,True,True,5622.0,
+w09,A book has 240 pages. You read 15 pages a day. How many days does it take to finish?,word_problem,medium,16,"Let $P$ be the number of pages in the book, so $P = 240$.
+Let $R$ be the number of pages read per day, so $R = 15$.
+We want to find the number of days it takes to finish the book.
+The number of pages remaining is $P - R = 240 - 15 = 225$.
+The number of days to finish the book is the number of pages remaining divided by the number of pages read per day.
+Number of days = $\frac{225}{15} = 15$ days.
+
+Final Answer: The final answer is 15.",15.0,True,False,7973.8,
+w10,"A bag has 3 red, 5 blue, and 2 green marbles. How many marbles are in the bag in total?",word_problem,easy,10,"Let $R$ be the number of red marbles, $B$ be the number of blue marbles, and $G$ be the number of green marbles.
+We are given that $R = 3$, $B = 5$, and $G = 2$.
+The total number of marbles in the bag is the sum of the number of red, blue, and green marbles.
+Total number of marbles = $R + B + G = 3 + 5 + 2 = 10$.
+
+Answer: 10",10.0,True,True,7215.8,
+w11,The sum of two numbers is 100. One of them is 37. What is the other number?,word_problem,medium,63,"Let the two numbers be $x$ and $y$. We are given that their sum is 100, so $x + y = 100$. We are also given that one of the numbers is 37, so let $x = 37$. Then we have $37 + y = 100$. Subtracting 37 from both sides, we get $y = 100 - 37 = 63$.
+
+Answer: 63",63.0,True,True,6977.2,
+w12,A recipe needs 1.5 cups of flour per batch. How many cups are needed for 3 batches?,word_problem,medium,4.5,"Let F be the number of cups of flour needed for one batch.
+We are given that F = 1.5 cups.
+We want to find the number of cups needed for 3 batches.
+Since each batch requires 1.5 cups of flour, for 3 batches, we need 3 * 1.5 = 4.5 cups of flour.
+
+Answer: 4.5",4.5,True,True,6150.9,
+f01,What is 25% of 200?,fraction_percent,easy,50,"Here's how to calculate 25% of 200:
+
+1. **Convert the percentage to a decimal:** 25% = 0.25
+2. **Multiply the decimal by the number:** 0.25 * 200 = 50
+
+Answer: 50
+",50.0,True,True,5644.4,
+f02,What is 1/4 of 100?,fraction_percent,easy,25,"Let's calculate 1/4 of 100.
+
+1/4 of 100 is (1/4) * 100 = 25
+
+Answer: 25
+",25.0,True,True,5101.5,
+f03,What is 50% of 78?,fraction_percent,easy,39,"Let's calculate 50% of 78.
+
+First, convert the percentage to a decimal: 50% = 0.50
+
+Now, multiply 0.50 by 78: 0.50 * 78 = 39
+
+Therefore, 50% of 78 is 39.
+Answer: 39",39.0,True,True,5976.7,
+f04,What is 2/3 of 60?,fraction_percent,medium,40,"Let's calculate 2/3 of 60 step-by-step:
+
+1.  **Multiply:** 2/3 * 60 = (2 * 60) / 3 = 120 / 3 = 40
+
+Therefore, 2/3 of 60 is 40.
+
+Answer: 40
+",40.0,True,True,5990.1,
+f05,What is 3/4 + 1/4?,fraction_percent,easy,1,"Here's how to solve the problem step-by-step:
+
+1. **Find a common denominator:** The denominators of 4 and 4 are both 4.  So, we convert 3/4 to 3/4 and 1/4 to 1/4.
+
+2. **Add the fractions:** 3/4 + 1/4 = 4/4 = 1
+
+Therefore, 3/4 + 1/4 = 1.
+
+Answer: 1
+",1.0,True,True,6612.8,
+f06,What is 10% of 350?,fraction_percent,easy,35,"Here's how to calculate 10% of 350:
+
+1.  **Convert the percentage to a decimal:** 10% = 0.10
+
+2.  **Multiply the decimal by the number:** 0.10 * 350 = 35
+
+Therefore, 10% of 350 is 35.
+Answer: 35",35.0,True,True,6079.6,
+f07,A shirt costs $80. It goes on sale for 30% off. How much is the discount in dollars?,fraction_percent,medium,24,"Let the original price of the shirt be $P = 80$.
+The discount is 30% of the original price.
+Discount amount = $30\% \times P = 0.30 \times 80 = 24$
+The discount in dollars is $24.
+
+Answer: 24",24.0,True,True,5847.4,
+f08,What is 15% of 200?,fraction_percent,easy,30,"Here's how to calculate 15% of 200:
+
+1.  **Convert the percentage to a decimal:** 15% = 0.15
+
+2.  **Multiply the decimal by the number:** 0.15 * 200 = 30
+
+Therefore, 15% of 200 is 30.
+Answer: 30
+",30.0,True,True,6326.6,
+f09,"If 40% of a number is 20, what is the number?",fraction_percent,hard,50,"Let the number be 'x'.
+
+We are given that 40% of x is 20.  We can write this as:
+
+0.  40 * x = 20
+
+To solve for x, divide both sides by 0.40:
+
+x = 20 / 0.40
+
+x = 50
+
+Answer: 50",50.0,True,True,6213.6,
+al01,"If x + 7 = 15, what is x?",algebra,medium,8,"Here's how to solve the problem step-by-step:
+
+1. **Subtract 7 from both sides of the equation:**
+   x + 7 - 7 = 15 - 7
+   x = 8
+
+Answer: 8
+",8.0,True,True,5437.5,
+al02,"If 3x = 24, what is x?",algebra,easy,8,"Let's solve for x:
+We have the equation 3x = 24.
+To find x, divide both sides of the equation by 3:
+x = 24 / 3
+x = 8
+
+Answer: 8",8.0,True,True,5435.5,
+al03,"If 2x - 5 = 9, what is x?",algebra,medium,7,"1. **Add 5 to both sides:** 2x - 5 + 5 = 9 + 5
+2. **Simplify:** 2x = 14
+3. **Divide both sides by 2:** 2x / 2 = 14 / 2
+4. **Solve for x:** x = 7
+
+Answer: 7",7.0,True,True,6241.6,
+al04,"If x / 4 = 6, what is x?",algebra,easy,24,"Here's how to solve the problem step-by-step:
+
+1. **Solve for x:** Divide both sides of the equation by 4:
+   x / 4 = 6
+   x = 6 * 4
+   x = 24
+
+Answer: 24",24.0,True,True,5670.0,
+al05,"If x + 2x = 18, what is x?",algebra,medium,6,"Let the given equation be:
+x + 2x = 18
+
+Combine the terms with x:
+3x = 18
+
+Divide both sides by 3:
+x = 18 / 3
+x = 6
+
+Answer: 6",6.0,True,True,5556.2,
+al06,"If 5x + 3 = 28, what is x?",algebra,medium,5,"1.  Subtract 3 from both sides of the equation:
+   5x + 3 - 3 = 28 - 3
+   5x = 25
+
+2.  Divide both sides by 5:
+   5x / 5 = 25 / 5
+   x = 5
+
+Answer: 5",5.0,True,True,6112.0,
+al07,"If 2(x + 3) = 14, what is x?",algebra,hard,4,"1. **Simplify the equation:** 2(x + 3) = 14  becomes  2x + 6 = 14
+2. **Subtract 6 from both sides:** 2x = 14 - 6  =>  2x = 8
+3. **Divide both sides by 2:** x = 8 / 2  =>  x = 4
+Answer: 4",4.0,True,True,6465.1,
+al08,"If x^2 = 81, what is the positive value of x?",algebra,medium,9,"Let x^2 = 81. We need to find the positive value of x.
+We can take the square root of both sides:
+x = sqrt(81)
+Since 9 * 9 = 81, we have:
+x = 9
+
+Therefore, the positive value of x is 9.
+
+Answer: 9",9.0,True,True,6400.3,
