@@ -106,3 +106,5 @@ export type MathMetricKey =
   | "parse_rate"
   | "overall_score"
   | "avg_latency_ms";
+
+export type MathChartKey = "dimension" | "heatmap" | "outcome";

@@ -155,3 +155,16 @@ export async function loadMathModelRows(
     };
   });
 }
+
+export async function loadAllMathRows(
+  metrics: MathMetric[],
+  dataset: MathDatasetExample[],
+): Promise<Record<string, MathExampleRow[]>> {
+  const out: Record<string, MathExampleRow[]> = {};
+  await Promise.all(
+    metrics.map(async (m) => {
+      out[m.model_id] = await loadMathModelRows(m.model_id, dataset);
+    }),
+  );
+  return out;
+}

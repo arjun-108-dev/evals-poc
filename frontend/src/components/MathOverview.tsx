@@ -9,62 +9,49 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MetricRadarChart } from "./MetricRadarChart";
-import { TradeoffScatterChart } from "./TradeoffScatterChart";
+import { MathDimensionChart } from "./MathDimensionChart";
+import { MathHeatmap } from "./MathHeatmap";
+import { MathOutcomeChart } from "./MathOutcomeChart";
 import { MathMetricsTable } from "./MathMetricsTable";
-import { MATH_SUB_SCORES, pct } from "@/lib/series";
-import type { MathMetric, MathMetricKey } from "@/lib/types";
-
-const ms = (v: number) => `${Math.round(v)}ms`;
+import type { MathChartKey, MathExampleRow, MathMetric } from "@/lib/types";
 
 export function MathOverview({
-  metrics,
-  onSelectMetric,
+  models,
+  rowsByModel,
+  onSelectChart,
 }: {
-  metrics: MathMetric[];
-  onSelectMetric: (k: MathMetricKey) => void;
+  models: MathMetric[];
+  rowsByModel: Record<string, MathExampleRow[]>;
+  onSelectChart: (k: MathChartKey) => void;
 }) {
-  const best = [...metrics].sort((a, b) => b.overall_score - a.overall_score)[0];
-  const worst = [...metrics].sort((a, b) => a.overall_score - b.overall_score)[0];
-  const fastest = [...metrics].sort(
-    (a, b) => a.avg_latency_ms - b.avg_latency_ms,
-  )[0];
-
   return (
     <div className="space-y-6">
       <section className="space-y-4">
         <Card>
           <CardHeader>
-            <CardTitle>Model comparison</CardTitle>
+            <CardTitle>Accuracy by category &amp; difficulty</CardTitle>
             <CardDescription>
-              One polygon per model across the two sub-scores that make up the
-              Overall Score. The best model is highlighted; all others are
-              neutral.
+              Per-model accuracy sliced by difficulty level or category. Toggle
+              between the two views to find where models fall apart.
             </CardDescription>
             <CardAction>
               <Button
                 variant="link"
                 size="sm"
                 className="h-auto p-0"
-                onClick={() => onSelectMetric("overall_score")}
+                onClick={() => onSelectChart("dimension")}
               >
-                Explain score
+                Details
                 <ArrowRightIcon data-icon="inline-end" />
               </Button>
             </CardAction>
           </CardHeader>
           <CardContent>
-            <MetricRadarChart
-              metrics={metrics}
-              subScores={MATH_SUB_SCORES}
-              className="mx-auto aspect-square w-full max-w-2xl"
+            <MathDimensionChart
+              rowsByModel={rowsByModel}
+              models={models}
+              className="w-full"
             />
-            <p className="mt-2 text-center text-xs text-muted-foreground">
-              Best: <span className="text-foreground">{best.name}</span> (
-              {best.overall_score.toFixed(2)}){"  ·  "}Weakest:{" "}
-              <span className="text-foreground">{worst.name}</span> (
-              {worst.overall_score.toFixed(2)})
-            </p>
           </CardContent>
         </Card>
 
@@ -72,85 +59,54 @@ export function MathOverview({
           <Card>
             <CardHeader>
               <CardTitle className="text-base">
-                Accuracy vs extraction
+                Category &times; model heatmap
               </CardTitle>
               <CardDescription>
-                Being right matters less if no answer is ever extracted. Top-right
-                is the goal zone.
+                Accuracy per (model, category) pair &mdash; darker = better
               </CardDescription>
               <CardAction>
                 <Button
                   variant="link"
                   size="sm"
                   className="h-auto p-0"
-                  onClick={() => onSelectMetric("parse_rate")}
+                  onClick={() => onSelectChart("heatmap")}
                 >
-                  Explain parse rate
+                  Details
                   <ArrowRightIcon data-icon="inline-end" />
                 </Button>
               </CardAction>
             </CardHeader>
             <CardContent>
-              <TradeoffScatterChart
-                metrics={metrics}
-                xKey="accuracy"
-                yKey="parse_rate"
-                xLabel="Accuracy"
-                yLabel="Parse Rate"
-                xFormat={pct}
-                yFormat={pct}
-                xGuide={0.85}
-                yGuide={0.95}
-                xDomain={[0, 1]}
-                yDomain={[0, 1]}
-                goodZone="top-right"
-                className="aspect-square w-full"
+              <MathHeatmap
+                rowsByModel={rowsByModel}
+                models={models}
+                className="w-full"
               />
-              <p className="mt-2 text-xs text-muted-foreground">
-                Worst extractor:{" "}
-                <span className="text-foreground">{best.name}</span> actually all
-                models parsed every answer this run.
-              </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Speed vs quality</CardTitle>
+              <CardTitle className="text-base">
+                Outcome composition
+              </CardTitle>
               <CardDescription>
-                Overall score against average latency (dot size = params).
+                Correct / wrong / unparsed breakdown per model
               </CardDescription>
               <CardAction>
                 <Button
                   variant="link"
                   size="sm"
                   className="h-auto p-0"
-                  onClick={() => onSelectMetric("avg_latency_ms")}
+                  onClick={() => onSelectChart("outcome")}
                 >
-                  Explain latency
+                  Details
                   <ArrowRightIcon data-icon="inline-end" />
                 </Button>
               </CardAction>
             </CardHeader>
             <CardContent>
-              <TradeoffScatterChart
-                metrics={metrics}
-                xKey="avg_latency_ms"
-                yKey="overall_score"
-                xLabel="Avg Latency (ms)"
-                yLabel="Overall Score"
-                xFormat={ms}
-                yFormat={(v) => v.toFixed(2)}
-                xGuide={6000}
-                yGuide={0.8}
-                xDomain={[0, 18000]}
-                yDomain={[0, 1]}
-                className="aspect-square w-full"
-              />
-              <p className="mt-2 text-xs text-muted-foreground">
-                Fastest: <span className="text-foreground">{fastest.name}</span> (
-                {ms(fastest.avg_latency_ms)})
-              </p>
+              <MathOutcomeChart metrics={models} className="w-full" />
             </CardContent>
           </Card>
         </div>
@@ -160,7 +116,7 @@ export function MathOverview({
         <h2 className="mb-3 text-lg font-semibold tracking-tight text-foreground">
           All metrics
         </h2>
-        <MathMetricsTable metrics={metrics} />
+        <MathMetricsTable metrics={models} />
       </section>
     </div>
   );

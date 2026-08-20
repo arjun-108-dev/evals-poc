@@ -14,6 +14,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import {
+  loadAllMathRows,
   loadDataset,
   loadMathDataset,
   loadMathMetrics,
@@ -22,9 +23,10 @@ import {
 } from "./lib/data";
 import type {
   DatasetExample,
+  MathChartKey,
   MathDatasetExample,
+  MathExampleRow,
   MathMetric,
-  MathMetricKey,
   Metric,
   MetricKey,
   ModelMeta,
@@ -34,7 +36,9 @@ import { ModelDetail } from "./components/ModelDetail";
 import { MetricDetailPage } from "./components/MetricDetailPage";
 import { MathOverview } from "./components/MathOverview";
 import { MathModelDetail } from "./components/MathModelDetail";
-import { MathMetricDetailPage } from "./components/MathMetricDetailPage";
+import { MathDimensionDetailPage } from "./components/MathDimensionDetailPage";
+import { MathHeatmapDetailPage } from "./components/MathHeatmapDetailPage";
+import { MathOutcomeDetailPage } from "./components/MathOutcomeDetailPage";
 
 type View = "overview" | "detail" | "chart";
 type EvalKind = "tool" | "math";
@@ -45,11 +49,13 @@ export default function App() {
   const [toolDataset, setToolDataset] = useState<DatasetExample[]>([]);
   const [mathMetrics, setMathMetrics] = useState<MathMetric[]>([]);
   const [mathDataset, setMathDataset] = useState<MathDatasetExample[]>([]);
+  const [mathRows, setMathRows] = useState<Record<string, MathExampleRow[]>>(
+    {},
+  );
   const [evalKind, setEvalKind] = useState<EvalKind>("tool");
   const [view, setView] = useState<View>("overview");
-  const [chartMetric, setChartMetric] = useState<
-    MetricKey | MathMetricKey | null
-  >(null);
+  const [chartMetric, setChartMetric] = useState<MetricKey | null>(null);
+  const [mathChart, setMathChart] = useState<MathChartKey | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -66,7 +72,9 @@ export default function App() {
         setToolDataset(d);
         setMathMetrics(mmet);
         setMathDataset(md);
+        return loadAllMathRows(mmet, md);
       })
+      .then((rows) => setMathRows(rows))
       .catch((e) => setError(String(e?.message ?? e)));
   }, []);
 
@@ -74,6 +82,7 @@ export default function App() {
     setEvalKind(kind);
     setView("overview");
     setChartMetric(null);
+    setMathChart(null);
   };
 
   const dataset = evalKind === "tool" ? toolDataset : mathDataset;
@@ -140,7 +149,7 @@ export default function App() {
               <TabsContent value="overview">
                 {view === "chart" && chartMetric ? (
                   <MetricDetailPage
-                    metricKey={chartMetric as MetricKey}
+                    metricKey={chartMetric}
                     metrics={toolMetrics}
                     onBack={() => setView("overview")}
                   />
@@ -161,17 +170,31 @@ export default function App() {
           ) : (
             <>
               <TabsContent value="overview">
-                {view === "chart" && chartMetric ? (
-                  <MathMetricDetailPage
-                    metricKey={chartMetric as MathMetricKey}
-                    metrics={mathMetrics}
-                    onBack={() => setView("overview")}
-                  />
+                {view === "chart" && mathChart ? (
+                  mathChart === "dimension" ? (
+                    <MathDimensionDetailPage
+                      rowsByModel={mathRows}
+                      models={mathMetrics}
+                      onBack={() => setView("overview")}
+                    />
+                  ) : mathChart === "heatmap" ? (
+                    <MathHeatmapDetailPage
+                      rowsByModel={mathRows}
+                      models={mathMetrics}
+                      onBack={() => setView("overview")}
+                    />
+                  ) : (
+                    <MathOutcomeDetailPage
+                      metrics={mathMetrics}
+                      onBack={() => setView("overview")}
+                    />
+                  )
                 ) : (
                   <MathOverview
-                    metrics={mathMetrics}
-                    onSelectMetric={(k) => {
-                      setChartMetric(k);
+                    models={mathMetrics}
+                    rowsByModel={mathRows}
+                    onSelectChart={(k) => {
+                      setMathChart(k);
                       setView("chart");
                     }}
                   />

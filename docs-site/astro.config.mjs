@@ -48,6 +48,7 @@ export default defineConfig({
 						{ label: 'Instruction following', slug: '16-instruction-following' },
 						{ label: 'LLM-as-a-judge', slug: '17-llm-as-judge' },
 						{ label: 'Multilingual', slug: '18-multilingual' },
+						{ label: 'Tools and Agents', slug: '19-tool-and-agents' },
 					],
 				},
 			],
