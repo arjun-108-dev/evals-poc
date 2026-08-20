@@ -94,7 +94,8 @@ def _normalize_tool_calls(raw: Any) -> list[dict]:
 
 
 def call_ollama(model: str, messages: list[dict], tools: list[dict],
-                timeout: float = 120.0) -> dict:
+                timeout: float = 120.0, temperature: float = 0.0,
+                seed: int | None = None) -> dict:
     """Call the Ollama chat API with `tools`.
 
     Many tiny models do not support Ollama's structured `tools` parameter and
@@ -102,6 +103,10 @@ def call_ollama(model: str, messages: list[dict], tools: list[dict],
     rely on the system prompt to coax a JSON tool call from the model text
     output. This keeps the evaluation fair across tool-native and non-native
     models and surfaces the real tool-calling behavior of small models.
+
+    `temperature` controls sampling randomness (0.0 = greedy/deterministic; a
+    value > 0 is required for pass^k reliability sampling). `seed`, when given,
+    is passed to Ollama to make multi-trial runs reproducible.
 
     Returns a dict with keys:
         content     - model text output (may be empty when a tool call is made)
@@ -112,11 +117,14 @@ def call_ollama(model: str, messages: list[dict], tools: list[dict],
     result = {"content": "", "tool_calls": [], "latency_ms": 0.0, "error": ""}
 
     def _post(use_tools: bool) -> dict:
+        options: dict = {"temperature": temperature}
+        if seed is not None:
+            options["seed"] = seed
         payload: dict = {
             "model": model,
             "messages": messages,
             "stream": False,
-            "options": {"temperature": 0.0},
+            "options": options,
         }
         if use_tools:
             payload["tools"] = tools

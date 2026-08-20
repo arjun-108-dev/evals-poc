@@ -1,0 +1,3 @@
+model_id,name,size,color,n_examples,K,pass1,pass8,drop,avg_single_trial,n_always_right,n_inconsistent,n_always_wrong,avg_latency_ms
+qwen3-0.6b,Qwen3 0.6B,0.6B,#34D399,150,8,0.94,0.86,0.08,0.9342,129,18,3,9622.5
+qwen2.5-0.5b,Qwen2.5 0.5B,0.5B,#F472B6,150,8,0.8133,0.6933,0.12,0.77,104,24,22,3578.3

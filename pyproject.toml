@@ -8,3 +8,10 @@ dependencies = []
 
 [tool.uv]
 package = false
+
+[dependency-groups]
+dev = [
+    "matplotlib>=3.11.1",
+    "numpy>=2.4.6",
+    "pandas>=3.0.5",
+]
