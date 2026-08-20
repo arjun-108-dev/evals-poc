@@ -1,0 +1,49 @@
+{
+  "models": [
+    {
+      "id": "functiongemma-270m",
+      "ollama": "functiongemma:270m",
+      "name": "FunctionGemma 270M",
+      "size": "270M",
+      "csv": "results/raw/functiongemma-270m.csv",
+      "color": "#8B5CF6",
+      "notes": "Purpose-built function-calling model from Google. Smallest model in the suite."
+    },
+    {
+      "id": "gemma3-1b",
+      "ollama": "gemma3:1b",
+      "name": "Gemma 3 1B",
+      "size": "1B",
+      "csv": "results/raw/gemma3-1b.csv",
+      "color": "#22D3EE",
+      "notes": "General-purpose tiny multimodal model. Not specifically trained for tool use."
+    },
+    {
+      "id": "qwen3-0.6b",
+      "ollama": "qwen3:0.6b",
+      "name": "Qwen3 0.6B",
+      "size": "0.6B",
+      "csv": "results/raw/qwen3-0.6b.csv",
+      "color": "#34D399",
+      "notes": "Qwen3 instruction-tuned tiny model."
+    },
+    {
+      "id": "qwen2.5-1.5b",
+      "ollama": "qwen2.5:1.5b",
+      "name": "Qwen2.5 1.5B",
+      "size": "1.5B",
+      "csv": "results/raw/qwen2.5-1.5b.csv",
+      "color": "#F59E0B",
+      "notes": "Largest model in the suite; useful upper-bound reference."
+    },
+    {
+      "id": "qwen2.5-0.5b",
+      "ollama": "qwen2.5:0.5b",
+      "name": "Qwen2.5 0.5B",
+      "size": "0.5B",
+      "csv": "results/raw/qwen2.5-0.5b.csv",
+      "color": "#F472B6",
+      "notes": "Smallest Qwen2.5 variant; stress test for very low capacity."
+    }
+  ]
+}

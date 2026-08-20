@@ -1,0 +1,6 @@
+model_id,name,size,color,n_examples,n_should_call,n_should_not_call,tool_accuracy,call_accuracy,arg_accuracy,abstain_accuracy,format_validity,false_positive_rate,overall_score,avg_latency_ms,n_tool_correct,n_call_correct,n_arg_correct,n_false_positive
+functiongemma-270m,FunctionGemma 270M,270M,#8B5CF6,34,22,12,0.3529,0.0455,0.0455,0.9167,1.0,0.0833,0.3152,15184.3,12,1,1,1
+gemma3-1b,Gemma 3 1B,1B,#22D3EE,34,22,12,0.5294,0.7273,0.2273,0.1667,1.0,0.8333,0.5174,4710.6,18,16,5,10
+qwen3-0.6b,Qwen3 0.6B,0.6B,#34D399,34,22,12,1.0,1.0,0.9545,1.0,1.0,0.0,0.9886,5148.8,34,22,21,0
+qwen2.5-1.5b,Qwen2.5 1.5B,1.5B,#F59E0B,34,22,12,0.9706,1.0,0.8636,0.9167,1.0,0.0833,0.9492,3632.0,33,22,19,1
+qwen2.5-0.5b,Qwen2.5 0.5B,0.5B,#F472B6,34,22,12,0.7059,0.9545,0.8182,0.25,1.0,0.75,0.7841,6558.4,24,21,18,9

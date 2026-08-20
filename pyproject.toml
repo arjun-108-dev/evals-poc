@@ -1,0 +1,10 @@
+[project]
+name = "poc-tiny-tool-calling"
+version = "0.1.0"
+description = "Evaluate tiny language models on tool-calling ability."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.uv]
+package = false

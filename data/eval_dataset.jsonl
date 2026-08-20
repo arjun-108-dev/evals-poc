@@ -1,0 +1,34 @@
+{"id": "e01", "prompt": "What's the weather like in Tokyo right now?", "expected_tool": "get_weather", "expected_args": {"location": "Tokyo"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e02", "prompt": "Set a timer for 10 minutes to take the pizza out of the oven.", "expected_tool": "set_timer", "expected_args": {"duration_minutes": 10, "label": "take the pizza out of the oven"}, "category": "multi_arg", "difficulty": "easy"}
+{"id": "e03", "prompt": "Text my mom and tell her I'll be home late.", "expected_tool": "send_message", "expected_args": {"recipient": "mom", "message": "I'll be home late"}, "category": "multi_arg", "difficulty": "medium"}
+{"id": "e04", "prompt": "Can you find contacts named Sarah in my address book?", "expected_tool": "search_contacts", "expected_args": {"query": "Sarah"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e05", "prompt": "How are you today?", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}
+{"id": "e06", "prompt": "Tell me a joke about cats.", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}
+{"id": "e07", "prompt": "Remind me in 25 minutes to stretch.", "expected_tool": "set_timer", "expected_args": {"duration_minutes": 25, "label": "stretch"}, "category": "multi_arg", "difficulty": "easy"}
+{"id": "e08", "prompt": "Message David: are we still on for lunch tomorrow?", "expected_tool": "send_message", "expected_args": {"recipient": "David", "message": "are we still on for lunch tomorrow?"}, "category": "multi_arg", "difficulty": "medium"}
+{"id": "e09", "prompt": "What is the capital of France?", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}
+{"id": "e10", "prompt": "Look up anyone called Ahmed in my contacts.", "expected_tool": "search_contacts", "expected_args": {"query": "Ahmed"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e11", "prompt": "Is it raining in London?", "expected_tool": "get_weather", "expected_args": {"location": "London"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e12", "prompt": "Set a 5 minute timer labeled 'tea'.", "expected_tool": "set_timer", "expected_args": {"duration_minutes": 5, "label": "tea"}, "category": "multi_arg", "difficulty": "easy"}
+{"id": "e13", "prompt": "Send a message to my boss saying I'm sick today.", "expected_tool": "send_message", "expected_args": {"recipient": "boss", "message": "I'm sick today"}, "category": "multi_arg", "difficulty": "medium"}
+{"id": "e14", "prompt": "Who won the world cup in 2018?", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "medium"}
+{"id": "e15", "prompt": "Can you check the weather for New York City?", "expected_tool": "get_weather", "expected_args": {"location": "New York City"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e16", "prompt": "Find my friend Michael in contacts.", "expected_tool": "search_contacts", "expected_args": {"query": "Michael"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e17", "prompt": "Set timer 15 minutes for workout.", "expected_tool": "set_timer", "expected_args": {"duration_minutes": 15, "label": "workout"}, "category": "multi_arg", "difficulty": "easy"}
+{"id": "e18", "prompt": "Please message Emma that the meeting is moved to 3pm.", "expected_tool": "send_message", "expected_args": {"recipient": "Emma", "message": "the meeting is moved to 3pm"}, "category": "multi_arg", "difficulty": "medium"}
+{"id": "e19", "prompt": "Explain the theory of relativity in simple terms.", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "medium"}
+{"id": "e20", "prompt": "What's the forecast for Sydney?", "expected_tool": "get_weather", "expected_args": {"location": "Sydney"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e21", "prompt": "Search contacts for 'John'.", "expected_tool": "search_contacts", "expected_args": {"query": "John"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e22", "prompt": "Timer for 45 minutes, label 'laundry'.", "expected_tool": "set_timer", "expected_args": {"duration_minutes": 45, "label": "laundry"}, "category": "multi_arg", "difficulty": "easy"}
+{"id": "e23", "prompt": "Send a text to Alex: 'Bring the documents please'.", "expected_tool": "send_message", "expected_args": {"recipient": "Alex", "message": "Bring the documents please"}, "category": "multi_arg", "difficulty": "medium"}
+{"id": "e24", "prompt": "Can you write me a poem about the ocean?", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}
+{"id": "e25", "prompt": "Do I need an umbrella in Berlin?", "expected_tool": "get_weather", "expected_args": {"location": "Berlin"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e26", "prompt": "Set a timer for two minutes to brush my teeth.", "expected_tool": "set_timer", "expected_args": {"duration_minutes": 2, "label": "brush my teeth"}, "category": "edge_case", "difficulty": "medium"}
+{"id": "e27", "prompt": "Message grandma happy birthday.", "expected_tool": "send_message", "expected_args": {"recipient": "grandma", "message": "happy birthday"}, "category": "edge_case", "difficulty": "medium"}
+{"id": "e28", "prompt": "Hello there, how's it going?", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}
+{"id": "e29", "prompt": "Find contact Tom.", "expected_tool": "search_contacts", "expected_args": {"query": "Tom"}, "category": "should_call", "difficulty": "easy"}
+{"id": "e30", "prompt": "What is 2 plus 2?", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}
+{"id": "e31", "prompt": "Thanks so much for your help!", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}
+{"id": "e32", "prompt": "What time is it?", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}
+{"id": "e33", "prompt": "Can you summarize that article I sent earlier?", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "medium"}
+{"id": "e34", "prompt": "Good morning!", "expected_tool": "none", "expected_args": null, "category": "should_not_call", "difficulty": "easy"}

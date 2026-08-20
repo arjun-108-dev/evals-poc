@@ -1,0 +1,84 @@
+{
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_weather",
+        "description": "Get the current weather for a given location.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The city or location to get the weather for, e.g. 'Paris'."
+            }
+          },
+          "required": ["location"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "set_timer",
+        "description": "Set a timer for a specified number of minutes with a label.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "duration_minutes": {
+              "type": "number",
+              "description": "How long the timer should run, in minutes."
+            },
+            "label": {
+              "type": "string",
+              "description": "A short label describing what the timer is for."
+            }
+          },
+          "required": ["duration_minutes", "label"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "send_message",
+        "description": "Send a text message to a recipient.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "recipient": {
+              "type": "string",
+              "description": "The name or contact of the person to message."
+            },
+            "message": {
+              "type": "string",
+              "description": "The text content of the message."
+            }
+          },
+          "required": ["recipient", "message"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "search_contacts",
+        "description": "Search the user's contacts for people matching a query.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search term, e.g. a name or partial name."
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

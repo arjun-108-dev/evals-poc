@@ -1,0 +1,973 @@
+id,prompt,expected_tool,expected_args,model_output,parsed_tool,parsed_args,tool_correct,args_correct,format_valid,false_positive,latency_ms,error
+e01,What's the weather like in Tokyo right now?,get_weather,"{""location"": ""Tokyo""}",,,,False,False,True,False,3811.9,
+e02,Set a timer for 10 minutes to take the pizza out of the oven.,set_timer,"{""duration_minutes"": 10, ""label"": ""take the pizza out of the oven""}"," model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+",,,False,False,True,False,40116.2,
+e03,Text my mom and tell her I'll be home late.,send_message,"{""recipient"": ""mom"", ""message"": ""I'll be home late""}","I'm sorry, I cannot assist with writing personalized messages. My current capabilities are focused on weather and communication tools. I cannot generate or manage personalized messages.",,,False,False,True,False,3551.9,
+e04,Can you find contacts named Sarah in my address book?,search_contacts,"{""query"": ""Sarah""}"," model:get_weather{}<end_function_call> me: I'd be happy to help. me: Sarah@example.com
+
+ me: Sarah@example.com",get_weather,{},False,False,True,False,4140.6,
+e05,How are you today?,none,,"I apologize, but I cannot assist with planning or searching for personal contacts. My current capabilities are limited to assisting with weather and communication tools.",,,True,True,True,False,3570.7,
+e06,Tell me a joke about cats.,none,,"I apologize, but I cannot assist with generating jokes. My current capabilities are focused on weather and communication tools.",,,True,True,True,False,3457.1,
+e07,Remind me in 25 minutes to stretch.,set_timer,"{""duration_minutes"": 25, ""label"": ""stretch""}","I apologize, but I cannot assist with setting reminders or managing personal commitments. My current capabilities are limited to assisting with weather and communication through the specified tools.",,,False,False,True,False,3530.8,
+e08,Message David: are we still on for lunch tomorrow?,send_message,"{""recipient"": ""David"", ""message"": ""are we still on for lunch tomorrow?""}",,,,False,False,True,False,3299.4,
+e09,What is the capital of France?,none,," model:get_weather{location: Paris}<end_function_call> me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ question: search_contacts{query: Paris}<end_function_call> me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ question: search_contacts{query: Paris}<end_function_call> me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ question: search_contacts{query: Paris}<end_function_call> me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ question: search_contacts{query: Paris}<end_function_call> me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+ me
+",get_weather,"{""location"": ""Paris""}",False,False,True,True,41718.6,
+e10,Look up anyone called Ahmed in my contacts.,search_contacts,"{""query"": ""Ahmed""}", model:get_weather{}<end_function_call> me:search_contacts{}<end_function_call>,get_weather,{},False,False,True,False,3870.4,
+e11,Is it raining in London?,get_weather,"{""location"": ""London""}",,,,False,False,True,False,3330.5,
+e12,Set a 5 minute timer labeled 'tea'.,set_timer,"{""duration_minutes"": 5, ""label"": ""tea""}"," model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+",,,False,False,True,False,41012.1,
+e13,Send a message to my boss saying I'm sick today.,send_message,"{""recipient"": ""boss"", ""message"": ""I'm sick today""}"," model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+",,,False,False,True,False,41512.2,
+e14,Who won the world cup in 2018?,none,,"I apologize, but I cannot assist with finding or answering such specific questions. My current capabilities are limited to assisting with weather and communication tools using the provided tools. I cannot perform or retrieve such specialized information.",,,True,True,True,False,3628.3,
+e15,Can you check the weather for New York City?,get_weather,"{""location"": ""New York City""}"," call:set_timer{duration_minutes:60,label: Weather for New York City}<end_function_call> call:search_contacts{query: New York City}<end_function_call> return: {""name"": ""weather_for_new_york_city"", ""arguments"": {""location"": ""New York City""}}",get_weather,"{""location"": "" New York City""}",True,True,True,False,4243.6,
+e16,Find my friend Michael in contacts.,search_contacts,"{""query"": ""Michael""}",,,,False,False,True,False,4334.4,
+e17,Set timer 15 minutes for workout.,set_timer,"{""duration_minutes"": 15, ""label"": ""workout""}"," model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+",,,False,False,True,False,45122.0,
+e18,Please message Emma that the meeting is moved to 3pm.,send_message,"{""recipient"": ""Emma"", ""message"": ""the meeting is moved to 3pm""}",,,,False,False,True,False,3970.9,
+e19,Explain the theory of relativity in simple terms.,none,,"I am sorry, but I cannot assist with explaining theoretical concepts like relativity. My current capabilities are focused on providing weather and communication tools. I cannot provide explanations of scientific concepts like relativity.",,,True,True,True,False,4057.9,
+e20,What's the forecast for Sydney?,get_weather,"{""location"": ""Sydney""}",,,,False,False,True,False,3819.9,
+e21,Search contacts for 'John'.,search_contacts,"{""query"": ""John""}"," model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+화를 늦추지 못하는 세상에서, 잊지 못할 추억을 짓누르는 모든 존재들이, 잊혀지지 않는 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀진 잊혀",,,False,False,True,False,48356.1,
+e22,"Timer for 45 minutes, label 'laundry'.",set_timer,"{""duration_minutes"": 45, ""label"": ""laundry""}"," model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+",,,False,False,True,False,52418.7,
+e23,Send a text to Alex: 'Bring the documents please'.,send_message,"{""recipient"": ""Alex"", ""message"": ""Bring the documents please""}"," model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+ send_message{recipient: Alex@example.com,message: Bring the documents please}<end_function_call> model
+",,,False,False,True,False,53859.4,
+e24,Can you write me a poem about the ocean?,none,,I would be happy to write a poem for you. What kind of theme or topic would you like the poem to explore?,,,True,True,True,False,4094.1,
+e25,Do I need an umbrella in Berlin?,get_weather,"{""location"": ""Berlin""}","I apologize, but I cannot assist with checking weather conditions or searching contacts for umbrellas in Berlin. My current tools are focused on weather and communication.",,,False,False,True,False,3960.5,
+e26,Set a timer for two minutes to brush my teeth.,set_timer,"{""duration_minutes"": 2, ""label"": ""brush my teeth""}"," model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ send_message{message: Brush my teeth.,recipient: her name@example.com}<end_function_call> model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ model
+ set_timer{duration_minutes:235,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:255,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:270,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:290,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:310,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:335,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:355,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:375,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:395,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:405,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:425,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:445,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:465,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:485,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:505,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:525,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:545,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:575,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:595,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:615,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:645,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:675,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:695,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:715,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:745,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:775,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:795,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:815,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:845,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:875,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:895,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:925,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:975,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:995,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1005,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1025,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1045,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1075,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1095,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1115,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1145,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1175,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1205,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1245,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1275,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1305,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1345,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1405,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1445,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1475,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1505,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1525,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1555,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1615,label: Brush my teeth}<end_function_call> model
+ model
+ set_timer{duration_minutes:1645,label: Brush my teeth}<end_function_call> model
+",,,False,False,True,False,52902.3,
+e27,Message grandma happy birthday.,send_message,"{""recipient"": ""grandma"", ""message"": ""happy birthday""}",,,,False,False,True,False,4200.6,
+e28,"Hello there, how's it going?",none,,"I apologize, but I cannot assist with finding or recommending personal contacts. My current capabilities are limited to assisting with weather and communication tools using the specified tools.",,,True,True,True,False,4165.7,
+e29,Find contact Tom.,search_contacts,"{""query"": ""Tom""}",,,,False,False,True,False,4654.8,
+e30,What is 2 plus 2?,none,,"I apologize, but I cannot assist with retrieving or generating specific information about numbers. My current capabilities are limited to assisting with weather and communication tools using the provided functions. I cannot provide information or assistance with such tasks.",,,True,True,True,False,4563.5,
+e31,Thanks so much for your help!,none,,"I apologize, but I cannot assist with managing or retrieving weather information or contacts. My current capabilities are limited to assisting with specific weather-related tools like getting the weather and sending messages.",,,True,True,True,False,4439.1,
+e32,What time is it?,none,,"I apologize, but I cannot assist with finding or searching time. My current capabilities are limited to assisting with weather and communication tools.",,,True,True,True,False,4301.2,
+e33,Can you summarize that article I sent earlier?,none,,I would be happy to assist with summarizing that article. Could you please provide the summary you would like me to use?,,,True,True,True,False,4208.3,
+e34,Good morning!,none,,Good morning! How can I assist you?,,,True,True,True,False,4042.0,
