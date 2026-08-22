@@ -5,10 +5,13 @@ Usage:
     uv run python evaluator/run_eval.py --model qwen3-0.6b --limit 10
     uv run python evaluator/run_eval.py --model qwen3-0.6b --dataset data/eval_dataset_large.jsonl \
         --samples 8 --temperature 0.7
+    uv run python evaluator/run_eval.py --model qwen3-0.6b --dataset data/eval_dataset_large.jsonl \
+        --limit 10 --no-file   # print only, no CSV written
 
 Outputs one detailed CSV per model. Single-shot runs write to
 results/raw/<model_id>.csv; multi-trial (pass^k) runs write to
-results/raw_passk/<model_id>.csv by default.
+results/raw_passk/<model_id>.csv by default. Use --no-file to skip
+writing any files and only print the per-case results to the terminal.
 """
 from __future__ import annotations
 
@@ -58,7 +61,8 @@ def _is_pulled(tag: str) -> bool:
 
 def run(model_id: str, limit: int | None, samples: int = 1,
         dataset_path: str | None = None, temperature: float = 0.0,
-        out_dir: str | None = None, offset: int = 0) -> str:
+        out_dir: str | None = None, offset: int = 0,
+        no_file: bool = False) -> str:
     # Resolve model config.
     models = utils.load_json(os.path.join(DATA, "models.json"))["models"]
     cfg = next((m for m in models if m["id"] == model_id), None)
@@ -82,21 +86,21 @@ def run(model_id: str, limit: int | None, samples: int = 1,
             raise SystemExit(f"Could not pull model '{tag}'. Skipping.")
 
     if out_dir:
-        os.makedirs(out_dir, exist_ok=True)
         out_csv = os.path.join(out_dir, f"{cfg['id']}.csv")
     elif samples > 1:
         out_dir = os.path.join(ROOT, "results", "raw_passk")
-        os.makedirs(out_dir, exist_ok=True)
         out_csv = os.path.join(out_dir, f"{cfg['id']}.csv")
     else:
         out_csv = os.path.join(ROOT, cfg["csv"])
-    os.makedirs(os.path.dirname(out_csv), exist_ok=True)
+
+    if not no_file:
+        os.makedirs(os.path.dirname(out_csv), exist_ok=True)
 
     n_calls = len(dataset) * samples
     print(f"\n=== Evaluating {cfg['name']} ({tag}) on {len(dataset)} examples x {samples} trial(s) "
           f"(temperature={temperature}) ===")
     print(f"    dataset: {ds_path}")
-    print(f"    output : {out_csv}")
+    print(f"    output : {out_csv if not no_file else '(none - no file written)'}")
     tool_names = [t["function"]["name"] for t in tools]
     rows = []
     for i, ex in enumerate(dataset, 1):
@@ -127,15 +131,42 @@ def run(model_id: str, limit: int | None, samples: int = 1,
             }
             rows.append(row)
             status = "OK" if g["tool_correct"] else ("FP" if g["false_positive"] else "MISS")
-            print(f"  [{i:2d}/{len(dataset)} t{trial}/{samples}] {ex['id']} -> "
-                  f"{g['parsed_tool'] or '(none)':<14} [{status}] {resp['latency_ms']:.0f}ms")
+
+            if ex["expected_tool"] == "none":
+                expected_disp = "none (no tool needed)"
+            elif ex["expected_args"]:
+                expected_disp = (f"{ex['expected_tool']}("
+                                 f"{json.dumps(ex['expected_args'], ensure_ascii=False)})")
+            else:
+                expected_disp = ex["expected_tool"]
+            parsed_disp = g["parsed_tool"] or "(no tool call)"
+            if g["parsed_args"]:
+                parsed_disp = f"{g['parsed_tool']}({g['parsed_args']})"
+
+            trial_tag = f" t{trial}/{samples}" if samples > 1 else ""
+            print(f"\n  [{i:>3}/{len(dataset)}]{trial_tag} {ex['id']}  [{status}] "
+                  f"{resp['latency_ms']:.0f}ms")
+            print(f"    prompt  : {ex['prompt']}")
+            print(f"    expected: {expected_disp}")
+            print(f"    got     : {parsed_disp}")
+            if resp["error"]:
+                print(f"    error   : {resp['error']}")
+            if g["tool_correct"] and not g["args_correct"]:
+                print(f"    note    : right tool, wrong args")
+            if g["false_positive"]:
+                print(f"    note    : called a tool when none was needed")
+            if not g["format_valid"]:
+                print(f"    note    : malformed tool-call format")
             sys.stdout.flush()
 
-    with open(out_csv, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=CSV_FIELDS)
-        w.writeheader()
-        w.writerows(rows)
-    print(f"Wrote {len(rows)} rows ({n_calls} API calls) -> {out_csv}")
+    if not no_file:
+        with open(out_csv, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=CSV_FIELDS)
+            w.writeheader()
+            w.writerows(rows)
+        print(f"\nWrote {len(rows)} rows ({n_calls} API calls) -> {out_csv}")
+    else:
+        print(f"\nEvaluated {len(rows)} rows ({n_calls} API calls); no file written")
     return out_csv
 
 
@@ -152,8 +183,11 @@ def main():
                     help="Sampling temperature. Use e.g. 0.7 for multi-trial reliability runs.")
     ap.add_argument("--out", default=None,
                     help="Output CSV directory. Defaults to results/raw_passk when --samples > 1.")
+    ap.add_argument("--no-file", action="store_true",
+                    help="Do not write any CSV; only print results to the terminal.")
     args = ap.parse_args()
-    run(args.model, args.limit, args.samples, args.dataset, args.temperature, args.out, args.offset)
+    run(args.model, args.limit, args.samples, args.dataset, args.temperature, args.out,
+        args.offset, args.no_file)
 
 
 if __name__ == "__main__":
